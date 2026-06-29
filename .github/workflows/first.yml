@@ -15,7 +15,7 @@ jobs:
         run: echo "Hello Github Actions"
 
       - name: Print Current Date
-        run: Date
+        run: date
       
       - name: show directory
         run: ls
