@@ -1,25 +1,32 @@
-name: workflow dispatch
+name: Simple Explained
 
-on: 
-  push:
-  workflow_dispatch:
+on:
+  push:                    # auto trigger on push
+  workflow_dispatch:       # + manual button in UI
     inputs:
       your_name:
         description: 'What is your name?'
         required: true
         type: string
 
-
-jobs: 
+jobs:
   explain:
     runs-on: ubuntu-latest
     steps:
-      - name: Who triggered this
-        run: |
-          echo "=============================================="
-          echo "Event: ${{ github.event_name }}"
-          echo "=============================================="
 
-      - name: Manual trigger
+      - name: Who triggered this and how?
+        run: |
+          echo "=============================="
+          echo "EVENT  : ${{ github.event_name }}"
+          echo "BRANCH : ${{ github.ref_name }}"
+          echo "WHO    : ${{ github.actor }}"
+          echo "REPO   : ${{ github.repository }}"
+          echo "=============================="
+
+      - name: This step ONLY runs on manual trigger
         if: github.event_name == 'workflow_dispatch'
         run: echo "Hello ${{ inputs.your_name }}, you clicked the button!"
+
+      - name: This step ONLY runs on push
+        if: github.event_name == 'push'
+        run: echo "Code was pushed! Running automatically."
