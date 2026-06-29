@@ -1,0 +1,25 @@
+name: workflow dispatch
+
+on: 
+  push:
+  workflow_dispatch:
+    inputs:
+      your_name:
+        description: 'What is your name?'
+        required: true
+        type: string
+
+
+jobs: 
+  explain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Who triggered this
+        run: |
+          echo "=============================================="
+          echo "Event: ${{ github.event_name }}"
+          echo "=============================================="
+
+      - name: Manual trigger
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Hello ${{ inputs.your_name }}, you clicked the button!"
