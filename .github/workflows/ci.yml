@@ -1,0 +1,32 @@
+name: continuous integration
+
+on: 
+  push: 
+    branches:
+      - main
+  
+  pull_request:
+    branches: [main]
+
+  
+jobs: 
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: CI Print
+        run: echo "I am about to run"
+
+      - name: checkout karo
+        uses: actions/checkout@v4
+      
+      - name: Installing Node
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20'
+
+      - name: Installing dependencies
+        run: npm Install
+      
+      - name: running test cases
+        run: npm test
