@@ -1,21 +1,16 @@
-name: My first workflow
+name: first file
 
 on: 
   push:
     branches:
-      - main
+    - main
+
 
 jobs: 
-  say-hello:
+
+  firstjob: 
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Print Hello 
-        run: echo "Hello Github Actions"
-
-      - name: Print Current Date
-        run: date
-      
-      - name: show directory
-        run: ls
+      - name: greeting
+        run: echo "Hello Muhammad!! Github Actions First File"
