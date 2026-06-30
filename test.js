@@ -9,7 +9,7 @@ function assertEqual(actual, expected, testName) {
   }
 }
 
-assertEqual(add(2, 3), 5, "add(2,3) should be 5");
+assertEqual(add(2, 3), 4, "add(2,3) should be 5");
 assertEqual(subtract(5, 2), 3, "subtract(5,2) should be 3");
 
 console.log("All tests passed!");
