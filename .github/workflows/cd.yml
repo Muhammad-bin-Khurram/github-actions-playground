@@ -1,0 +1,7 @@
+name: continous deployment
+
+on: 
+  push:
+    branches:
+      - main
+  

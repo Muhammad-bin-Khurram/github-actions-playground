@@ -1,0 +1,21 @@
+pipeline {
+    stages {
+        stage('checkout') {
+            steps {
+                echo 'Hello Checkout'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Hello Test'
+            }
+        }
+
+        stage('Deployment') {
+            steps {
+                echo 'Hello Deployment'
+            }
+        }
+    }
+}
